@@ -1,5 +1,4 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
 
@@ -16,7 +15,7 @@ $fuck-font: 'Bokor', cursive;
 $future-font: 'Monoton', cursive;
 
 $red: #ff2112;
-$text-color:       #9a9093;
+$text-color:       #ff0127;
 $background-color: #111;
 $bg-dark: #090909;
 $bg-light: rgba(80,80,80,0.8);
@@ -49,6 +48,17 @@ body, html {
     margin: 0;
 }
 
+.submitlink {
+    background-image: url('../static/img/kuso_solo_sm.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 60px;
+    .txt {
+        color: #ff0;
+    }
+}
+
 a {
     color: $link-color;
     text-decoration: none;
@@ -75,6 +85,27 @@ body {
     overflow-y: scroll;
 }
 
+.title {
+    font-size: 6.8vw;
+    font-family: $future-font;
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    word-wrap: break-word;
+}
+.subtitle {
+    letter-spacing: 60px;
+    // font-family: $fuck-font;
+    text-align: center;
+    margin-bottom: 60px;
+    word-wrap: break-word;
+}
+@media (max-width: 800px) {
+    .subtitle {
+        display: none;
+    }
+}
+
 .top-main {
     @media (max-width: 800px) {
         & > * {
@@ -91,125 +122,30 @@ body {
         }
     }
     // margin: 0 -5vw;
-    background-color: $bg-dark;
-}
+    // background-color: $bg-dark;
+    background-image: url('../static/img/kuso_solo_dark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-@media (max-width: 800px) {
-    .top-wrapper {
-        display: none;
-    }
-    .top-mobile {
-        display: block;
-    }
-}
-@media (min-width: 800px) {
-    .top-wrapper {
-        display: block;
-    }
-    .top-mobile {
-        display: none;
-    }
-}
-
-.top-mobile {
-    .eyecatch {
-        z-index: 1;
-        display: block;
-        width: 100%;
-        position: relative;
-        width: 0 auto;
-
-        .text {
-            z-index: 2;
-            text-transform: uppercase;
-            font-family: $future-font;
-            word-wrap: break-word;
-            word-break: break-all;
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: $title-color;
-            font-size: $h0-mobile;
-            line-height: $h0-lh-mobile;
-        }
-        .eye-img {
-            z-index: 1;
-            width: 100%;
-        }
-    }
 }
 
 .top-wrapper {
     position: relative;
-    .eyecatch {
-        margin-left: -($eyecatch-width/2);
-        transform: translateX(50vw);
-        transition: all .5s ease-out;
-    }
-    &:hover .eyecatch {
-        transform: translateX($eyecatch-width/2);
-        transition: all .5s ease-out;
-    }
 
-    .sub-panel {
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        font-size: $h1;
-        position: absolute;
-        top: 0;
-        opacity: 0;
-        background-color: $bg-light;
-        transition: all .5s ease-out;
-    }
+    background-color: $bg-dark;
+    background-image: url('../static/img/kuso4bg_dark.png');
+    // background-size: 220%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // min-height: 95vh;
 
-    &:hover .sub-panel {
-        opacity: 1;
-        transition: all .5s ease-out;
-    }
-
-    .sub-inner {
-        margin-top: -50px;
-        margin-left: $eyecatch-width + 50px;
-        height: 100%;
-        .h {
-            font-size: 60px;
-            margin-bottom: 20px;
-            color: lighten($text-color, 40%);
+    .player {
+        max-width: 700px;
+        margin: 0 auto;
+        iframe {
+            pointer-events: all;
         }
-        .player {
-            iframe {
-                pointer-events: all;
-            }
-            // background-color: $bg-dark;
-        }
-    }
-    margin-bottom: -7px;
-    overflow: hidden;
-}
-.eyecatch {
-    overflow: hidden;
-    z-index: 1;
-    display: block;
-    width: $eyecatch-width;
-    position: relative;
-
-    .text {
-        z-index: 2;
-        text-transform: uppercase;
-        font-family: $future-font;
-        word-wrap: break-word;
-        word-break: break-all;
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: $title-color;
-        font-size: $h0;
-        line-height: $h0-lh;
-    }
-    .eye-img {
-        z-index: 1;
-        width: $eyecatch-width;
     }
 }
 
@@ -255,89 +191,25 @@ body {
 }
 
 .artists {
-    .name {
-        font-size: 40px;
+    dt {
+        font-size: 22px;
+        background-color: #ff00bb;
         color: #fff;
-        text-shadow: 2px 2px #222;
-        opacity: 0;
-        padding-top: 25px;
-        display: inline-block;
     }
-    a {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.5);
-        opacity: 0;
-        transition: opacity 0.3s ease-out;
-        &:hover {
-            transition: opacity 0.3s ease-out;
-            opacity: 1;
-            .name {
-                opacity: 1;
-            }
+    dd {
+        margin-left: 0;
+        .img {
+            float: left;
+            height: 200px;
+            width: 200px;
+            background-size: cover;
+            margin-right: 20px;
         }
-    }
-
-    .art {
-        position: relative;
-        width: 30%;
-        height: 100px;
-        background-position: center;
-        background-size: 100%;
-        display: inline-block;
-    }
-}
-
-.artists-full {
-    .name {
-        font-size: 40px;
-        color: #fff;
-        text-shadow: 2px 2px #222;
-        padding-top: 25px;
-        display: inline-block;
-    }
-    .art {
-        position: relative;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        width: 100%;
-        height: 250px;
-        a {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
         }
-    }
-    .info {
-        background-color: lighten($bg-dark,20);
-        text-align: left;
-        position: relative;
-        @media (max-width: 800px) {
-            padding: 0;
-        }
-        @media (min-width: 800px) {
-            padding: 40px;
-        }
-        img {
-            max-height: 500px;
-            max-width: 100vw;
-            display: block;
-            margin: 0 auto;
-        }
-        margin-bottom: 50px;
-    }
-    .cdrinfo {
-        max-width: 100vw;
-        word-wrap: break-word;
-        word-break: break-all;
     }
 }
 
@@ -374,5 +246,9 @@ mark {
 
     a {
         color: $red;
+    }
+    &.alt {
+        padding: 5px;
+        background-color: #ff00bb;
     }
 }
